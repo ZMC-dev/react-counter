@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+//App.jss
 
-function App() {
+import { useState } from "react";
+import ButtonLess from './components/ButtonLess';
+import ButtonPlus from "./components/ButtonPlus";
+import ButtonReset from "./components/ButtonReset";
+import "./App.css";
+
+const App = () => {
+  const [counter, setCounter] = useState(0)
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1 className="counterTitle">React Counter</h1>
+      <div className="counterDiv">
+      
+      <ButtonLess counter={counter} setCounter={setCounter} />
+      <span className="counterText">{counter}</span>
+      <ButtonPlus counter={counter} setCounter={setCounter} />
+      </div>
+    
+      <div className="buttonReset">
+        <ButtonReset counter={counter} setCounter={setCounter} />
+      </div>
+      
+
     </div>
   );
-}
+};
 
 export default App;
